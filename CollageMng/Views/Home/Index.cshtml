@@ -1,0 +1,124 @@
+﻿@using CollageMng.Models;
+@model IEnumerable<Gallery>
+
+<section class="section">
+    <div class="section-body">
+
+        <!-- clg content -->
+        <div>
+            <div class="card">
+                <div class="padding-20">
+                    <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab2" data-toggle="tab" href="#about" role="tab"
+                               aria-selected="true">About PGI</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#settings" role="tab"
+                               aria-selected="false">Gallery</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content tab-bordered" id="myTab3Content">
+                        <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="home-tab2">
+                            <div style="width:100%;padding: 40px;">
+                                <center><img src="@Url.Content("~/img/pgi.png")" width="50%" /></center>
+                            </div>
+                            <div class="row">
+
+
+                                <div class="col-md-3 col-6 b-r">
+                                    <strong>Institution Name</strong>
+                                    <br>
+                                    <p class="text-muted">Patel Group of Institutions</p>
+                                </div>
+                                <div class="col-md-3 col-6 b-r">
+                                    <strong>Mobile</strong>
+                                    <br>
+                                    <p class="text-muted">+91 9687361097</p>
+                                </div>
+                                <div class="col-md-3 col-6 b-r">
+                                    <strong>Email</strong>
+                                    <br>
+                                    <p class="text-muted">patelgroupmcamba@gmail.com</p>
+                                </div>
+                                <div class="col-md-3 col-6">
+                                    <strong>Location</strong>
+                                    <br>
+                                    <p class="text-muted">Motidau / Mehsana</p>
+                                </div>
+                            </div>
+                            <p class="m-t-30">
+                                Patel Group of Institutions is established Since 2010, with an aim to provide
+                                quality education to young students, and to equip them with various skills to meet new
+                                challenges in the corporate world. Patel group of institution is located in city of Mehsana –
+                                North Gujarat.
+                            </p>
+                            <p>
+                                Patel group of institution is accredited by All India Council of Technical Education
+                                (AICTE-Govt. of India) and affiliated to Gujarat Technological University (GTU-Govt. of Gujarat)
+                                which provides two year full time Master of Business Administration-MBA , Master of Computer
+                                Application-MCA , BCA(MCA-IC) and BBA(MBA-IC) Courses .
+                            </p>
+                            <p>
+                                The institute is well equipped with seminar hall, Multimedia AC Classroom, Library, Computer
+                                Lab, Girls Hostel & Boys Hostel, Transportation Facility, WIFI in Each and Every Classes,
+                                Gardens, Canteen with Delicious food, and Playground with all kind of indoor & outdoor
+                                activities.
+                            </p>
+                            <div class="section-title">Vision</div>
+                            <ul>
+                                <li>
+                                    Building a legacy of excellence is out intent and positioning Patel Group of Institutions as
+                                    a compelling choice for potential students. In the dynamic and highly fluid environment of
+                                    current higher education, to stay ahead, we must press ahead.
+                                </li>
+                                <li>
+                                    Yet, we seek new dimensions of providing an Extraordinary Educational Experience, not simply
+                                    because we aim to forge ahead, but because, at the very core of all, there is an ethical
+                                    obligation.
+                                </li>
+                            </ul>
+                            <div class="section-title">Mission</div>
+                            <ul>
+                                <li>To improve continually in the teaching-learning process by strengthening infrastructural facilities and faculty credentials.</li>
+                                <li>To enhance proportion of skilled based courses beyond curriculum to create more employable graduates.</li>
+
+                            </ul>
+                            <div class="section-title">Objectives</div>
+                            <ul>
+                                <li>To prepare students for employment in specific career fields.</li>
+                                <li>To facilitate entry of graduates into their chosen careers.</li>
+
+                            </ul>
+                            <div class="section-title">Courses Provided by PGI</div>
+                            <ul>
+                                <li>BCA</li>
+                                <li>BBA</li>
+                                <li>MCA</li>
+                                <li>MBA</li>
+
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade" id="settings" role="tabpanel" aria-labelledby="profile-tab2">
+                            <div id="aniimated-thumbnials" class="list-unstyled row clearfix">
+                                @foreach (var Pics in Model)
+                                {
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                                       
+                                            <img class="img-responsive thumbnail" src="@Url.Content("~/Gallery/"+Pics.Photo)" alt="">
+                                        
+                                    </div>
+                                }
+                       
+                                
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

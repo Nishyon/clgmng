@@ -1,0 +1,32 @@
+﻿@model CollageMng.Models.Gallery
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Message
+    </div>
+}
+<div class="card">
+    <div class="card-header">
+        <h4>Add Image </h4>
+    </div>
+    <form method="post" asp-action="AddImage" asp-controller="Admin" enctype="multipart/form-data">
+        <div class="card-body">
+           
+            <div class="form-group row">
+                <label for="file" class="col-sm-3 col-form-label">Image</label>
+                <div class="col-sm-9">
+                    <input type="file" name="file" id="file" class="form-control" />
+
+                </div>
+            </div>
+           
+
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Upload" />
+        </div>
+
+    </form>
+</div>
+

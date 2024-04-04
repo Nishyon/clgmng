@@ -1,0 +1,45 @@
+﻿@using CollageMng.Models
+@model IEnumerable<Tt>
+
+<div class="card" style="overflow-x:scroll;">
+    <div class="card-header">
+        <h4>Time-table  </h4>
+        <h4>Department : @ViewBag.dname || Semester : @ViewBag.sem</h4>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col" width="0px"></th>
+                    <th scope="col" width="0px"></th>
+                    <th scope="col">Lec1</th>
+                    <th scope="col">Lec2</th>
+                    <th scope="col">Lec3</th>
+                    <th scope="col">Lec4</th>
+                    <th scope="col">Lec5</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <form method="post" asp-action="ChangeTt" asp-controller="Admin">
+                    <tr>
+
+                        <th scope="row"><input type="text" value=@item.Day name="day" style="display:none" />@item.Day</th>
+                        <th scope="row"><input type="text" value=@item.Dn name="dname" style="display:none" /></th>
+                        <th scope="row"><input type="number" value=@item.Sem name="sem" style="display:none" /></th>
+                        <td>  <input type="text" value=@item.Lec1 name="a" /></td>
+                        <td>  <input type="text" value=@item.Lec2 name="b" /></td>
+                        <td>  <input type="text" value=@item.Lec3 name="c" /></td>
+                        <td>  <input type="text" value=@item.Lec4 name="d" /></td>
+                        <td>  <input type="text" value=@item.Lec5 name="e" /></td>
+                        <td><input type="submit" class="btn btn-primary" value="Change" /></td>
+
+                    </tr>
+                    </form>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

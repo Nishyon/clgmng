@@ -1,0 +1,89 @@
+﻿@model CollageMng.Models.Mammarks
+@if (!string.IsNullOrEmpty(ViewBag.Number))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Number
+    </div>
+}
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h4>Add Marks </h4>
+    </div>
+    <form method="post" asp-action="AddMamMarks" asp-controller="FacultyController">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Department</label>
+                <div class="col-sm-9">
+                    @ViewBag.Dname
+                    @Html.TextBoxFor(model => model.Dname, new { type = "hidden", @class = "form-control", id = "dep", value = @ViewBag.Dname })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="name" class="col-sm-3 col-form-label">Semester</label>
+                <div class="col-sm-9">
+                    @ViewBag.Sem
+                    @Html.TextBoxFor(model => model.sem, new { type = "hidden", @class = "form-control", id = "sem", value = @ViewBag.Sem })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="stu" class="col-sm-3 col-form-label">Enrollment Number </label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Stuno, new { type = "number", @class = "form-control", required = "required", id = "stu", placeholder = "Enter Enrollment number of student " })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="s1" class="col-sm-3 col-form-label">@ViewBag.s1</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.S1, new { type = "number", @class = "form-control", required = "required", id = "s1", placeholder = "Enter Marks : " })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="s2" class="col-sm-3 col-form-label">@ViewBag.s2</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.S2, new { type = "number", @class = "form-control", required = "required", id = "s2", placeholder = "Enter Marks : " })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="s3" class="col-sm-3 col-form-label">@ViewBag.s3</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.S3, new { type = "number", @class = "form-control", required = "required", id = "s3", placeholder = "Enter Marks : " })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="s4" class="col-sm-3 col-form-label">@ViewBag.s4</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.S4, new { type = "number", @class = "form-control", required = "required", id = "s4", placeholder = "Enter Marks : " })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="s5" class="col-sm-3 col-form-label">@ViewBag.s5</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.S5, new { type = "number", @class = "form-control", required = "required", id = "s5", placeholder = "Enter Marks : " })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="s6" class="col-sm-3 col-form-label">@ViewBag.s6</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.S6, new { type = "number", @class = "form-control", required = "required", id = "s6", placeholder = "Enter Marks : " })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="s7" class="col-sm-3 col-form-label">@ViewBag.s7</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.S7, new { type = "number", @class = "form-control", required = "required", id = "s7", placeholder = "Enter Marks : " })
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Add Marks" />
+        </div>
+
+    </form>
+</div>

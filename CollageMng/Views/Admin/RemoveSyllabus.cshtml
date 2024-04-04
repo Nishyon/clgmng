@@ -1,0 +1,28 @@
+﻿@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-danger">
+        Data not found.
+    </div>
+    TempData.Remove("AlertMessage");
+}
+<div class="card">
+    <div class="card-header">
+        <h4>Remove Syllabus </h4>
+    </div>
+    <form method="post" asp-action="RemoveSyllabus" asp-controller="AdminController">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="sid" class="col-sm-3 col-form-label">Syllabus ID</label>
+                <div class="col-sm-9">
+                    <input type="number" class="form-control" id="sid" name="sylid" placeholder="Syllabus ID" />
+                </div>
+            </div>
+
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Remove Syllabus" />
+        </div>
+
+    </form>
+</div>

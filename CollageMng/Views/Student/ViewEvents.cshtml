@@ -1,0 +1,20 @@
+﻿@using CollageMng.Models
+@model IEnumerable<Event>
+  @foreach (var ev in Model)
+        {
+<div class="card">
+    <div class="card-header">
+            <h4>@ev.Name</h4>
+    </div>
+    <div class="card-body">
+            <div class="mb-2 text-muted"><b>ID :-</b> @ev.Id</div>
+            <div class="mb-2 text-muted"><b>Date :-</b> @ev.Date</div>
+            <div class="mb-2 text-muted"><b>About Event :-</b> @ev.Msg</div>
+        <div class="chocolat-parent">
+                <div data-crop-image="285">
+                        <img alt="image" src="@Url.Content("~/uploads/" + ev.Img)" width="200px" class="img-fluid">
+                </div>
+        </div>
+    </div>
+</div>
+        }

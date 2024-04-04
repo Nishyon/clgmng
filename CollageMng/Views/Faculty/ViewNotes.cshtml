@@ -1,0 +1,99 @@
+﻿@using CollageMng.Models;
+@model IEnumerable<Note>
+
+@if (TempData.ContainsKey("NodataFound"))
+{
+    <div class="alert alert-danger">
+        Data not found.
+    </div>
+    TempData.Remove("NodataFound");
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h4>Search Notes</h4>
+    </div>
+    <form method="post" asp-action="ViewNotes" asp-controller="AdminController">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="DepartName" class="col-sm-3 col-form-label">Department Name</label>
+                <div class="col-sm-9">
+                    <select class="custom-select" id="DepartName" name="DepartName">
+                        <option value="MCA" selected>MCA</option>
+                        <option value="MBA">MBA</option>
+                        <option value="I-MCA">I-MCA</option>
+                        <option value="I-MBA">I-MBA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Sems" class="col-sm-3 col-form-label">Semester</label>
+                <div class="col-sm-9">
+                    <select class="custom-select" id="Sems" name="Sems">
+                        <option value=1 selected>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5</option>
+                        <option value=6>6</option>
+                        <option value=7>7</option>
+                        <option value=8>8</option>
+                        <option value=9>9</option>
+                        <option value=10>10</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Search Notes" />
+        </div>
+
+    </form>
+</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Note List</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="save-stage" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Department</th>
+                                <th>Semester</th>
+                                <th>Subject-Code</th>
+                                <th>Message</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null)
+                            {
+                                @foreach (var syllabus in Model)
+                                {
+                                    <tr>
+                                        <td>@syllabus.Id</td>
+                                        <td>@syllabus.Dname</td>
+                                        <td>@syllabus.Sem</td>
+                                        <td>@syllabus.Msg</td>
+                                        <td>@syllabus.Msg2</td>
+                                        <td><a href="@Url.Content("~/upnotes/" + syllabus.filePath)" download="@syllabus.filePath" class="btn btn-primary">Download</a></td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

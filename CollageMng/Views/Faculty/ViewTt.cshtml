@@ -1,0 +1,117 @@
+﻿@using CollageMng.Models
+@model IEnumerable<Tt>
+
+<div class="card">
+    <div class="card-header">
+        <h4>Search Timetable</h4>
+    </div>
+    <form method="post" asp-action="ViewTt" asp-controller="Admin">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="dname" class="col-sm-3 col-form-label">Department Name</label>
+                <div class="col-sm-9">
+                    <select class="custom-select" id="dname" name="dname" onchange="updateSecondSelect()">
+                        <option value="mca" selected>MCA</option>
+                        <option value="mba">MBA</option>
+                        <option value="ic">I-MCA</option>
+                        <option value="mam">I-MBA</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sem" class="col-sm-3 col-form-label">Semester</label>
+                <div class="col-sm-9">
+                    <select class="custom-select" id="sem" name="sem">
+                        <option value=1 selected>1</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Search Timetable" />
+        </div>
+
+    </form>
+</div>
+
+
+<script>
+    function updateSecondSelect() {
+        // Get the value of the first select box
+        var firstSelectValue = document.getElementById("dname").value;
+
+        // Select the second select box
+        var secondSelect = document.getElementById("sem");
+
+        // Clear existing options
+        secondSelect.innerHTML = "";
+
+        // Depending on the value of the first select box, populate the second select box with different options
+        switch (firstSelectValue) {
+            case "mba":
+                secondSelect.options.add(new Option(1, 1));
+                secondSelect.options.add(new Option(2, 2));
+                secondSelect.options.add(new Option(3, 3));
+                secondSelect.options.add(new Option(4, 4));
+                break;
+            case "mca":
+                secondSelect.options.add(new Option(1, 1));
+                secondSelect.options.add(new Option(2, 2));
+                secondSelect.options.add(new Option(3, 3));
+                secondSelect.options.add(new Option(4, 4));
+                break;
+            default:
+                secondSelect.options.add(new Option(1, 1));
+                secondSelect.options.add(new Option(2, 2));
+                secondSelect.options.add(new Option(3, 3));
+                secondSelect.options.add(new Option(4, 4));
+                secondSelect.options.add(new Option(5, 5));
+                secondSelect.options.add(new Option(6, 6));
+                secondSelect.options.add(new Option(7, 7));
+                secondSelect.options.add(new Option(8, 8));
+                secondSelect.options.add(new Option(9, 9));
+                secondSelect.options.add(new Option(10, 10));
+                // Handle unexpected value
+                break;
+        }
+    }
+</script>
+
+<div class="card" style="overflow-x:scroll;">
+    <div class="card-header">
+        <h4>Time-table  </h4>
+        <h4>Department : @ViewBag.dname || Semester : @ViewBag.sem</h4>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Lec1</th>
+                    <th scope="col">Lec2</th>
+                    <th scope="col">Lec3</th>
+                    <th scope="col">Lec4</th>
+                    <th scope="col">Lec5</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th scope="row">@item.Day</th>
+                        <td>@item.Lec1</td>
+                        <td>@item.Lec2</td>
+                        <td>@item.Lec3</td>
+                        <td>@item.Lec4</td>
+                        <td>@item.Lec5</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

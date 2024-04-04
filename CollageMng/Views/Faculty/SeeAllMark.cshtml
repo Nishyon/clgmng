@@ -1,0 +1,68 @@
+﻿<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4>Syllabus List</h4>
+                
+            </div>
+            <div class="card-header">
+                <form method="post" asp-action="SeeAllMark" asp-controller="FacultyController">
+                <input type="hidden" class="from-control" value=@ViewBag.dname name="dname" />
+                    <input type="hidden" class="from-control" value=@ViewBag.sem name="sem" />
+                <input type="submit" class="btn btn-danger" value="Delete All Marks" />
+                </form>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover" id="save-stage" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Department</th>
+                                <th>Semester</th>
+                                <th>Student no</th>
+                                <th>@ViewBag.c1</th>
+                                <th>@ViewBag.c2</th>
+                                <th>@ViewBag.c3</th>
+                                <th>@ViewBag.c4</th>
+                                <th>@ViewBag.c5</th>
+                                @if (ViewBag.c6 != null)
+                                {
+                                    <th>@ViewBag.c6</th>
+                                    <th>@ViewBag.c7</th>
+                                }
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                                @foreach (var data in ViewBag.Data)
+                                {
+                                    <tr>
+                                        <td>@data.Id</td>
+                                        <td>@data.Dname</td>
+                                        <td>@data.sem</td>
+                                        <td>@data.Stuno</td>
+                                        <td>@data.S1</td>
+                                        <td>@data.S2</td>
+                                        <td>@data.S3</td>
+                                        <td>@data.S4</td>
+                                        <td>@data.S5</td>
+                                    @if (ViewBag.c6 != null)
+                                    {
+                                        <td>@data.S6</td>
+                                        <td>@data.S7</td>
+                                    }
+                                    
+                                    </tr>
+                                }
+                            
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

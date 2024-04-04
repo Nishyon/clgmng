@@ -1,0 +1,100 @@
+﻿@using CollageMng.Models
+
+@{
+    Facdata Sdata = ViewBag.Profile;
+}
+@if (!string.IsNullOrEmpty(ViewBag.Message)){
+    <div class="alert alert-danger">
+    @ViewBag.Message
+    </div>
+}
+
+<div class="card">
+    <div class="card-header">
+        <h4>Update Profile</h4>
+    </div>
+    <form method="post" asp-action="UpdateProfile" asp-controller="Admin" enctype="multipart/form-data">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="inputUsername3" class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputUsername3" name="Username" placeholder="Username" required="required" value=@Sdata.Username />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    <input type="email" class="form-control" id="inputEmail3" name="Email" placeholder="Email" required="required" value=@Sdata.Email />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPhone3" class="col-sm-3 col-form-label">Phone number</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="inputPhone3" name="Phone" placeholder="Phone number" required="required" value=@Sdata.Phone />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="file" class="col-sm-3 col-form-label">Profile Photo</label>
+                <div class="col-sm-9">
+                    <input type="file" class="form-control" id="file" name="file" />
+                </div>
+            </div>
+           
+           
+            <div class="form-group row">
+                <label for="cc" class="col-sm-3 col-form-label">Class Coordinator</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="cc" name="ClassCordinator" placeholder=" any class or Null " required="required" value=@Sdata.ClassCordinator />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="edu" class="col-sm-3 col-form-label">Education</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="edu" name="Education" placeholder="Faculty Education" required="required" value=@Sdata.Education />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sp" class="col-sm-3 col-form-label">Speciality</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="sp" name="Speciality" placeholder="Faculty Speciality" required="required" value=@Sdata.Speciality />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="dname" class="col-sm-3 col-form-label">Department Name</label>
+                <div class="col-sm-9">
+                    <select class="custom-select" id="dname" name="dname" >
+                        @if (@Sdata.Dname=="mca")
+                        {
+                            <option value="mca" selected>MCA</option>
+                            <option value="mba">MBA</option>
+                            <option value="admin">Admin</option>
+                        }
+                        @if (@Sdata.Dname == "mba")
+                        {
+                            <option value="mca">MCA</option>
+                            <option value="mba" selected>MBA</option>
+                            <option value="admin">Admin</option>
+                        }
+                        @if (@Sdata.Dname == "admin")
+                        {
+                            <option value="mca">MCA</option>
+                            <option value="mba">MBA</option>
+                            <option value="admin" selected>Admin</option>
+                        }
+
+                       
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+   
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Update" />
+        </div>
+
+    </form>
+</div>
+

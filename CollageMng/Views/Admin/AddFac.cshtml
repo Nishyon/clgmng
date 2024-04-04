@@ -1,0 +1,113 @@
+﻿@model CollageMng.Models.Facdata
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Message
+    </div>
+}
+<div class="card">
+    <div class="card-header">
+        <h4>Add Faculty </h4>
+    </div>
+    <form method="post" asp-action="AddFac" asp-controller="AdminController" enctype="multipart/form-data">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="inputUsername3" class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Username, new { type = "text", @class = "form-control", id = "inputUsername3", placeholder = "Username", required = "required" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Email, new { type = "email", @class = "form-control", id = "inputEmail3", placeholder = "Email", required = "required" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPhone3" class="col-sm-3 col-form-label">Phone number</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Phone, new { type = "text", @class = "form-control", id = "inputPhone3", placeholder = "Phone number", required = "required" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="file" class="col-sm-3 col-form-label">Profile Photo</label>
+                <div class="col-sm-9">
+                    <input type="file" name="file" id="file" class="form-control" />
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Password, new { type = "password", @class = "form-control", id = "inputPassword3", placeholder = "Password", required = "required" })
+                </div>
+            </div>
+
+         
+            
+            <div class="row">
+                <div class="col-form-label col-sm-3 pt-0">Role</div>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        <div class="custom-control custom-radio">
+                            @Html.RadioButtonFor(model => model.Role, "Faculty", new { type = "radio", name = "customRadio", @class = "custom-control-input", id = "customRadio3", @checked = "checked" })
+                            <label class="custom-control-label" for="customRadio3">Faculty</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            @Html.RadioButtonFor(model => model.Role, "Admin", new { type = "radio", name = "customRadio", @class = "custom-control-input", id = "customRadio2" })
+                            <label class="custom-control-label" for="customRadio2">Admin</label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="cc" class="col-sm-3 col-form-label">Class Coordinator</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.ClassCordinator, new { type = "text", @class = "form-control", id = "cc", placeholder = " any class or Null ", required = "required" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="edu" class="col-sm-3 col-form-label">Education</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Education, new { type = "text", @class = "form-control", id = "edu", placeholder = "Faculty Educatinn", required = "required" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sp" class="col-sm-3 col-form-label">Speciality</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Speciality, new { type = "text", @class = "form-control", id = "sp", placeholder = "Faculty Speciality", required = "required" })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="dname" class="col-sm-3 col-form-label">Department Name</label>
+                <div class="col-sm-9">
+                    <select class="custom-select" id="dname" name="dname" >
+                        <option value="mca" selected>MCA</option>
+                        <option value="mba">MBA</option>
+                        <option value="admin">Admin</option>
+                        
+                    </select>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Add Faculty" />
+        </div>
+
+    </form>
+</div>
+
+
+<script>
+
+    window.onload = function () {
+        document.getElementById('customRadio3').checked = true;
+    };
+
+   
+</script>

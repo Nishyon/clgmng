@@ -1,0 +1,69 @@
+﻿@model CollageMng.Models.Syllabus
+@if (!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="alert alert-danger">
+        @ViewBag.Message
+    </div>
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h4>Add Syllabus</h4>
+    </div>
+    <form method="post" asp-action="AddSyllabus" asp-controller="AdminController" enctype="multipart/form-data">
+        <div class="card-body">
+            
+            <div class="row">
+                <div class="col-form-label col-sm-3 pt-0">Department Name</div>
+                <div class="col-sm-9">
+                    <div class="form-check">
+                        <div class="custom-control custom-radio">
+                            @Html.RadioButtonFor(model => model.Dname, "MCA", new { type = "radio", name = "customRadio", @class = "custom-control-input", id = "customRadio3" })
+                            <label class="custom-control-label" for="customRadio3">MCA</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            @Html.RadioButtonFor(model => model.Dname, "I-MCA", new { type = "radio", name = "customRadio", @class = "custom-control-input", id = "customRadio2" })
+                            <label class="custom-control-label" for="customRadio2">I-MCA</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            @Html.RadioButtonFor(model => model.Dname, "MBA", new { type = "radio", name = "customRadio", @class = "custom-control-input", id = "customRadio1" })
+                            <label class="custom-control-label" for="customRadio1">MBA</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            @Html.RadioButtonFor(model => model.Dname, "I-MBA", new { type = "radio", name = "customRadio", @class = "custom-control-input", id = "customRadio4" })
+                            <label class="custom-control-label" for="customRadio4">I-MBA</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Sem" class="col-sm-3 col-form-label">Semester</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Sem, new { type = "number", @class = "form-control", id = "Sem", placeholder = "Semester" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="msg" class="col-sm-3 col-form-label">Code</label>
+                <div class="col-sm-9">
+                    @Html.TextBoxFor(model => model.Msg, new { type = "text", @class = "form-control", id = "msg", placeholder = "Subject Code" })
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="file" class="col-sm-3 col-form-label">Syllabus</label>
+                <div class="col-sm-9">
+                    <input type="file" name="file" id="file" class="form-control" />
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Add Syllabus" />
+        </div>
+
+    </form>
+</div>

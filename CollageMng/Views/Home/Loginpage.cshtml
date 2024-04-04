@@ -1,0 +1,104 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- auth-login.html  21 Nov 2019 03:49:32 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>Otika - Admin Dashboard Template</title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="@Url.Content("~/css/app.min.css")">
+    <link rel="stylesheet" href="@Url.Content("~/bundles/bootstrap-social/bootstrap-social.css")">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/css/style.css")">
+    <link rel="stylesheet" href="@Url.Content("~/css/components.css")">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="@Url.Content("~/css/custom.css")">
+    <link rel='shortcut icon' type='image/x-icon' href='@Url.Content("~/img/favicon.ico")' />
+</head>
+
+<body>
+    @{
+        Layout = null;
+    }
+    <div class="loader"></div>
+    <div id="app">
+        <section class="section">
+            <div class="container mt-5">
+                @if (!string.IsNullOrEmpty(TempData["Message"] as string))
+                {
+                    <div class="alert alert-danger">
+                        @TempData["Message"]
+                    </div>
+                }
+                <div class="row">
+                    <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h4>Login</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="post" asp-action="Loginpage" asp-controller="Home" class="needs-validation" novalidate="">
+                                    <div class="form-group">
+                                        
+                                        <label for="Email">Email</label>
+                                        <input type="email" name="email" required class="form-control" id="email" placeholder="Email"/>
+                                       
+                                        <div class="invalid-feedback">
+                                            Please fill in your email
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                       
+
+                                        <input type="password" name="pass" required class="form-control" id="pass" placeholder="Password" />
+                                        <div class="invalid-feedback">
+                                            please fill in your password
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-form-label col-sm-3 pt-0">Role</div>
+                                        <div class="col-sm-9">
+                                            <div class="form-check">
+                                               
+                                        
+                                                <input type="radio" name="role" required  id="role1" value="Student" checked/>
+                                                <label for="role1">Student</label><br />
+                                                
+                                                <input type="radio" name="role" required  id="role2" value="Faculty" />
+                                                <label for="role2">Faculty</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                                            Login
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+    </section>
+    </div>
+    <!-- General JS Scripts -->
+    <script src="@Url.Content("~/js/app.min.js")"></script>
+    <!-- JS Libraies -->
+    <!-- Page Specific JS File -->
+    <!-- Template JS File -->
+    <script src="@Url.Content("~/js/scripts.js")"></script>
+    <!-- Custom JS File -->
+    <script src="@Url.Content("~/js/custom.js")"></script>
+    </body>
+    </html>

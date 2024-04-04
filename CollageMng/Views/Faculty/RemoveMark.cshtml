@@ -1,0 +1,50 @@
+﻿@using CollageMng.Models;
+
+@if (TempData.ContainsKey("NodataFound"))
+{
+    <div class="alert alert-danger">
+        Data not found.
+    </div>
+    TempData.Remove("NodataFound");
+}
+@if (TempData.ContainsKey("dataFound"))
+{
+    <div class="alert alert-success">
+        Record Deleted.
+    </div>
+}
+
+
+<div class="card">
+    <div class="card-header">
+        <h4>Remove Mark</h4>
+    </div>
+    <form method="post" asp-action="RemoveMark" asp-controller="FacultyController">
+        <div class="card-body">
+            <div class="form-group row">
+                <label for="dname" class="col-sm-3 col-form-label">Department Name</label>
+                <div class="col-sm-9">
+                    <select class="custom-select" id="dname" name="dname">
+                        <option value="McaCource" selected>MCA</option>
+                        <option value="MbaCource">MBA</option>
+                       
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Sems" class="col-sm-3 col-form-label">Student Number</label>
+                <div class="col-sm-9">
+                    <input type="number" name="id" id="id" class="form-control"/>
+                </div>
+            </div>
+
+        </div>
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Remove" />
+        </div>
+
+    </form>
+</div>
+
+
+
